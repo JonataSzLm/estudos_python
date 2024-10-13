@@ -1,10 +1,10 @@
 {
   "window.zoomLevel": 1,
-  "editor.fontSize": 26,
+  "editor.fontSize": 24,
   "editor.hover.enabled": true,
   "workbench.startupEditor": "none",
   "explorer.compactFolders": false,
-  "terminal.integrated.fontSize": 24,
+  "terminal.integrated.fontSize": 16,
   "editor.rulers": [80, 120],
   "workbench.iconTheme": "material-icon-theme",
   "code-runner.executorMap": {
