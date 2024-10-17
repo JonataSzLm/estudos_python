@@ -1,8 +1,8 @@
 class StringReprMixin:
     def __str__(self):
-        params  = ', '.join([f'{k}={v}' for k, v in  self.__dict__.items()])
+        params = ', '.join([f'{k}={v}' for k, v in  self.__dict__.items()])
         return f'{self.__class__.__name__}({params})'
-        
+
     def __repr__(self):
         return self.__str__()
 
