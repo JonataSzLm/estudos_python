@@ -79,7 +79,7 @@ class Notebook(IObserver):
 
     def update(self) -> None:
         self.show()
-        
+
     def show(self) -> None:
         print('Sou o note e vou fazer outra coisa com esses dados',
               self.observable.state)
