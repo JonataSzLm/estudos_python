@@ -1,0 +1,67 @@
+from collections.abc import Iterator, Iterable
+from typing import List, Any
+
+
+class MyIterator(Iterator):
+    def __init__(self, collection: List[Any]) -> None:
+        self._collection = collection
+        self._index = 0
+
+    def __next__(self) -> Any:
+        try:
+            item = self._collection[self._index]
+            self._index += 1
+            return item
+        except IndexError:
+            raise StopIteration
+
+
+class ReverseIterator(Iterator):
+    def __init__(self, collection: List[Any]) -> None:
+        self._collection = collection
+        self._index = -1
+
+    def __next__(self) -> Any:
+        try:
+            item = self._collection[self._index]
+            self._index -= 1
+            return item
+        except IndexError:
+            raise StopIteration
+
+
+class MyList(Iterable):
+    def __init__(self) -> None:
+        self._items: List[Any] = []
+        self._my_iterator = MyIterator(self._items)
+
+    def add(self, value: Any) -> None:
+        self._items.append(value)
+
+    def __iter__(self) -> Iterator:
+        return self._my_iterator
+
+    def reverse_iter(self) -> Iterator:
+        return ReverseIterator(self._items)
+
+    def __str__(self) -> str:
+        return f'{self.__class__.__name__}({self._items})'
+
+
+if __name__ == '__main__':
+    mylist = MyList()
+    mylist.add('José')
+    mylist.add('Maria')
+    mylist.add('João')
+
+    # print(mylist)
+
+    # print('Roubei o item:', next(iter(mylist)))
+
+    for value in mylist:
+        print(value)
+
+    print()
+
+    for value in mylist.reverse_iter():
+        print(value)

@@ -47,4 +47,5 @@ def registra_operacao(operacao: Operacao):
             print('Operação Inválida.')
 
 
-registra_operacao(Operacao('deb', [10, 20, 30]))
+operacao = Operacao('deb', [1, 2])
+registra_operacao(operacao)
